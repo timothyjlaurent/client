@@ -1207,8 +1207,10 @@ class Api(object):
             raise CommError("%s is an empty file" % file.name)
         try:
             print("upload_file url", url)
+            logger.info(url)
             response = requests.put(url, data=progress, headers=extra_headers)
             print(response.content)
+            logger.info(response.content)
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             logger.error("upload_file exception {} {}".format(url, e))
