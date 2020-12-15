@@ -1206,6 +1206,7 @@ class Api(object):
         if progress.len == 0:
             raise CommError("%s is an empty file" % file.name)
         try:
+            print("upload_file url", url)
             response = requests.put(url, data=progress, headers=extra_headers)
             print(response.content)
             response.raise_for_status()
